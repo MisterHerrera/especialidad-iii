@@ -6,10 +6,10 @@
 negocio de una farmacia.
 
 Tecnologías a utilizar:
-Backend: Django 
-FrontEnd: A elección del encargado de FrontEnd (REEMPLAZAR TEXTO Y SEÑALAR AQUÍ)
-BBDD: PostgreSQL & MongoDB
-Deployment: Docker Compose + Ubuntu 22.04 en VirtualBox 
+- Backend: Django 
+- FrontEnd: A elección del encargado de FrontEnd (REEMPLAZAR TEXTO Y SEÑALAR AQUÍ)
+- BBDD: PostgreSQL & MongoDB
+- Deployment: Docker Compose + Ubuntu 22.04 en VirtualBox 
 
 Integrantes:
 * Jesús Castillo - Desarrollador FrontEnd
