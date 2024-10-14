@@ -9,6 +9,7 @@ Tecnologías a utilizar:
 - Backend: Django 
 - FrontEnd: A elección del encargado de FrontEnd (REEMPLAZAR TEXTO Y SEÑALAR AQUÍ)
 - BBDD: PostgreSQL & MongoDB
+- Servidor web: Runserver + Nginx Reverso
 - Deployment: Docker Compose + Ubuntu 22.04 en VirtualBox 
 
 Integrantes:
