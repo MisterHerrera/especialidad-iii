@@ -1,0 +1,7 @@
+<h1>{% if form.instance.id_producto %}Editar{% else %}Nuevo{% endif %} Producto</h1>
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Guardar</button>
+</form>
+<a href="{% url 'producto-list' %}">Volver</a>

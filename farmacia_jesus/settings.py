@@ -66,7 +66,7 @@ ROOT_URLCONF = "farmacia_jesus.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [os.path.join(BASE_DIR, 'core', 'templates')],  
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -88,9 +88,9 @@ WSGI_APPLICATION = "farmacia_jesus.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": "farmacia_BBDD",
+        "NAME": "farmacia",
         "USER": "postgres",
-        "PASSWORD":"tetisismywife",
+        "PASSWORD":"Agustin1924",
         "HOST":"localhost",
         "PORT":"5432"
     }

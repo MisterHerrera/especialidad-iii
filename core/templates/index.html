@@ -1,0 +1,16 @@
+<!-- farmacia_jesus/templates/index.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>FARMACIA JESUS</title>
+</head>
+<body>
+    <h1>FARMACIA JESUS</h1>
+    <h2>Selecciona una opción:</h2>
+    <ul>
+        <li><a href="{% url 'producto-list' %}">Productos</a></li>
+        <li><a href="{% url 'proveedor-list' %}">Proveedores</a></li>
+    </ul>
+</body>
+</html>

@@ -18,18 +18,22 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+
 import categoria.urls as cat
 import cliente.urls as cl
 import producto.urls as pd
 import proveedor.urls as pv
 import receta.urls as rc
+from core.views import home 
 
 urlpatterns = [
+    
     path("admin/", admin.site.urls),
+    path("", home, name="home"),
     path("categorias/", include(cat.urlpatterns)),
     path("clientes/", include(cl.urlpatterns)),
     path("productos/", include(pd.urlpatterns)),
     path("proveedores/", include(pv.urlpatterns)),
     path("recetas/", include(rc.urlpatterns)),
-
+    
 ]

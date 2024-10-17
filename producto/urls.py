@@ -1,11 +1,9 @@
 from django.urls import path
-
-from . import views
+from .views import producto_list, producto_create, producto_update, producto_delete
 
 urlpatterns = [
-    # Ejemplo de URLPATTERNS
-    # path("articles/2003/", views.special_case_2003),
-    # path("articles/<int:year>/", views.year_archive),
-    # path("articles/<int:year>/<int:month>/", views.month_archive),
-    # path("articles/<int:year>/<int:month>/<slug:slug>/", views.article_detail),
+    path('', producto_list, name='producto-list'),  # Esta URL debe ser correcta
+    path('nuevo/', producto_create, name='producto-create'),
+    path('editar/<int:pk>/', producto_update, name='producto-update'),
+    path('eliminar/<int:pk>/', producto_delete, name='producto-delete'),
 ]

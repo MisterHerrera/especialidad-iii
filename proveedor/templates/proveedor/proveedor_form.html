@@ -1,0 +1,7 @@
+<h1>{% if form.instance.id_proveedor %}Editar{% else %}Nuevo{% endif %} Proveedor</h1>
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Guardar</button>
+</form>
+<a href="{% url 'proveedor-list' %}">Volver</a>
