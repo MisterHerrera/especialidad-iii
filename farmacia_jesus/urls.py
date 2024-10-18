@@ -25,6 +25,7 @@ import producto.urls as pd
 import proveedor.urls as pv
 import receta.urls as rc
 from core.views import home 
+from enviar_correo.views import enviar_correo
 
 urlpatterns = [
     
@@ -35,5 +36,6 @@ urlpatterns = [
     path("productos/", include(pd.urlpatterns)),
     path("proveedores/", include(pv.urlpatterns)),
     path("recetas/", include(rc.urlpatterns)),
+    path("enviar-correo/", enviar_correo, name="enviar_correo"),
     
 ]

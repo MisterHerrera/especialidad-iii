@@ -45,7 +45,8 @@ PROJECT_APPS = [
     "cliente",
     "producto",
     "proveedor",
-    "receta"
+    "receta",
+    "enviar_correo"
 ]
 
 
@@ -151,3 +152,12 @@ STATIC_ROOT= '/core/static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+
+# Configuración para enviar correos
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'localhost'  
+EMAIL_PORT = 25  
+EMAIL_USE_TLS = False  
+EMAIL_USE_SSL = False  
+DEFAULT_FROM_EMAIL = 'henriquezurbinae0@gmail.com'  
