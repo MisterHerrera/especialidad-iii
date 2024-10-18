@@ -11,5 +11,5 @@ class Sequence(me.Document):
         return sequence.current_value
 class Receta(me.Document):
     id_receta = me.IntField(primary_key=True, required=True, default=lambda: Sequence.get_next_value('receta'))
-    id_cliente = me.ReferenceField(Cliente)
+    id_cliente = me.ReferenceField(Cliente, reverse_delete_rule=me.CASCADE)
     nombre_doctor = me.StringField(db_field="nombre")
