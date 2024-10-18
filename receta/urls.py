@@ -1,11 +1,9 @@
 from django.urls import path
-
-from . import views
+from .views import receta_list, receta_create, receta_update, receta_delete
 
 urlpatterns = [
-    # Ejemplo de URLPATTERNS
-    # path("articles/2003/", views.special_case_2003),
-    # path("articles/<int:year>/", views.year_archive),
-    # path("articles/<int:year>/<int:month>/", views.month_archive),
-    # path("articles/<int:year>/<int:month>/<slug:slug>/", views.article_detail),
+    path('', receta_list, name='receta-list'),
+    path('nueva/', receta_create, name='receta-create'),
+    path('<int:pk>/editar/', receta_update, name='receta-update'),
+    path('<int:pk>/eliminar/', receta_delete, name='receta-delete'),
 ]

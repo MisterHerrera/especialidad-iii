@@ -1,0 +1,16 @@
+<h1>Lista de Clientes</h1>
+<a href="{% url 'cliente-create' %}">Nuevo Cliente</a>
+<ul>
+    {% for cliente in clientes %}
+        <li>
+            {{ cliente.nombre }} {{ cliente.apellido }} ({{ cliente.rut }})
+            <a href="{% url 'cliente-update' cliente.pk %}">Editar</a>
+            <a href="{% url 'cliente-delete' cliente.pk %}">Eliminar</a>
+        </li>
+    {% endfor %}
+</ul>
+
+<div class="col-12 col-sm-4 mb-3">
+    <a href="{% url 'home' %}" class="button button--gray form-control">Volver</a>
+
+</div>

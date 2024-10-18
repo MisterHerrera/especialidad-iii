@@ -1,0 +1,7 @@
+<h1>Eliminar Receta</h1>
+<p>¿Estás seguro de que quieres eliminar esta receta?</p>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Eliminar</button>
+    <a href="{% url 'receta-list' %}">Cancelar</a>
+</form>

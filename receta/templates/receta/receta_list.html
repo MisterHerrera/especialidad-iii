@@ -1,0 +1,17 @@
+<h1>Lista de Recetas</h1>
+<a href="{% url 'receta-create' %}">Nueva Receta</a>
+<ul>
+    {% for receta in recetas %}
+        <li>
+            Cliente: {{ receta.id_cliente.nombre }} - Doctor: {{ receta.nombre_doctor }}
+            <a href="{% url 'receta-update' receta.id_receta %}">Editar</a>
+            <a href="{% url 'receta-delete' receta.id_receta %}">Eliminar</a>
+        </li>
+    {% endfor %}
+</ul>
+
+
+<div class="col-12 col-sm-4 mb-3">
+    <a href="{% url 'home' %}" class="button button--gray form-control">Volver</a>
+
+</div>
