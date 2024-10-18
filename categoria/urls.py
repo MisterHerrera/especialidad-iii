@@ -1,11 +1,11 @@
 from django.urls import path
-
+from .views import categoria_list, categoria_create, categoria_update, categoria_delete
 from . import views
 
 urlpatterns = [
-    # Ejemplo de URLPATTERNS
-    # path("articles/2003/", views.special_case_2003),
-    # path("articles/<int:year>/", views.year_archive),
-    # path("articles/<int:year>/<int:month>/", views.month_archive),
-    # path("articles/<int:year>/<int:month>/<slug:slug>/", views.article_detail),
+
+    path('', categoria_list, name='categoria-list'),
+    path('nuevo/', categoria_create, name='categoria-create'),
+    path('<int:pk>/editar/', categoria_update, name='categoria-update'),
+    path('<int:pk>/eliminar/', categoria_delete, name='categoria-delete'),
 ]
