@@ -1,7 +1,37 @@
-<h1>{% if form.instance.pk %}Editar{% else %}Nuevo{% endif %} Cliente</h1>
-<form method="POST">
+{% extends 'base.html' %}
+
+{% block title %}
+    {% if form.instance.pk %}Editar Cliente{% else %}Nuevo Cliente{% endif %}
+{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1 class="mb-0">{% if form.instance.pk %}Editar{% else %}Nuevo{% endif %} Cliente</h1>
+    <a href="{% url 'cliente-list' %}" class="btn btn-outline-dark"><i class="fas fa-arrow-left"></i> Volver</a>
+</div>
+
+<form method="POST" class="col-md-6 mx-auto">
     {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Guardar</button>
+    
+    <div class="mb-3">
+        <label for="id_rut" class="form-label">Rut:</label>
+        <input type="text" name="rut" required id="id_rut" class="form-control" 
+               value="{{ form.rut.value|default:'' }}" maxlength="10">
+    </div>
+
+    <div class="mb-3">
+        <label for="id_nombre" class="form-label">Nombre:</label>
+        <input type="text" name="nombre" required id="id_nombre" class="form-control" 
+               value="{{ form.nombre.value|default:'' }}" maxlength="100">
+    </div>
+
+    <div class="mb-3">
+        <label for="id_apellido" class="form-label">Apellido:</label>
+        <input type="text" name="apellido" required id="id_apellido" class="form-control" 
+               value="{{ form.apellido.value|default:'' }}" maxlength="100">
+    </div>
+
+    <button type="submit" class="btn btn-dark">Guardar</button>
 </form>
-<a href="{% url 'cliente-list' %}">Volver</a>
+
+{% endblock %}

@@ -1,7 +1,31 @@
-<h1>{% if form.instance.pk %}Editar Categoría{% else %}Crear Categoría{% endif %}</h1>
-<form method="POST">
+{% extends 'base.html' %}
+
+{% block title %}
+{% if form.instance.pk %}Editar Categoría{% else %}Crear Categoría{% endif %}
+{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1 class="mb-0">{% if form.instance.pk %}Editar Categoría{% else %}Crear Categoría{% endif %}</h1>
+    <a href="{% url 'categoria-list' %}" class="btn btn-outline-dark"><i class="fas fa-arrow-left"></i> Atrás</a>
+</div>
+
+<form method="POST" class="col-md-6 mx-auto">
     {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Guardar</button>
+    
+    <div class="mb-3">
+        <label for="id_id_categoria" class="form-label">ID:</label>
+        <input type="number" name="id_categoria" required id="id_id_categoria" class="form-control" 
+               value="{{ form.id_categoria.value|default:'' }}">
+    </div>
+
+    <div class="mb-3">
+        <label for="id_nombre" class="form-label">Nombre:</label>
+        <input type="text" name="nombre" maxlength="20" required id="id_nombre" class="form-control" 
+               value="{{ form.nombre.value|default:'' }}">
+    </div>
+
+    <button type="submit" class="btn btn-dark">Guardar</button>
 </form>
-<a href="{% url 'categoria-list' %}">Volver al listado</a>
+
+{% endblock %}

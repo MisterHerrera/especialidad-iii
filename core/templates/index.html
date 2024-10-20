@@ -1,19 +1,28 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>FARMACIA JESUS</title>
-</head>
-<body>
-    <h1>FARMACIA JESUS</h1>
-    <h2>Selecciona una opción:</h2>
-    <ul>
-        <li><a href="{% url 'producto-list' %}">Productos</a></li>
-        <li><a href="{% url 'proveedor-list' %}">Proveedores</a></li>
-        <li><a href="{% url 'categoria-list' %}">Categorías</a></li>
-        <li><a href="{% url 'cliente-list' %}">Clientes</a></li>
-        <li><a href="{% url 'receta-list' %}">Receta</a></li>
-        <li><a href="{% url 'enviar_correo' %}">Enviar Correo</a></li> <!-- Enlace para enviar correo -->
-    </ul>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block title %}FARMACIA JESUS{% endblock %}
+
+{% block content %}
+<h1 class="text-center">FARMACIA LOS INCREIBLES</h1>
+<h2 class="text-center">Selecciona una opción:</h2>
+<div class="row justify-content-center mt-5">
+    <div class="col-3 mb-3">
+        <a href="{% url 'categoria-list' %}" class="btn btn-dark w-100 py-3">Categorías</a>
+    </div>
+    <div class="col-3 mb-3">
+        <a href="{% url 'proveedor-list' %}" class="btn btn-dark w-100 py-3">Proveedores</a>
+    </div>
+    <div class="col-3 mb-3">
+        <a href="{% url 'producto-list' %}" class="btn btn-dark w-100 py-3">Productos</a>
+    </div>
+    <div class="col-3 mb-3">
+        <a href="{% url 'cliente-list' %}" class="btn btn-dark w-100 py-3">Clientes</a>
+    </div>
+    <div class="col-3">
+        <a href="{% url 'receta-list' %}" class="btn btn-dark w-100 py-3">Recetas</a>
+    </div>
+    <div class="col-3">
+        <a href="{% url 'enviar_correo' %}" class="btn btn-dark w-100 py-3">Enviar Correo</a>
+    </div>
+</div>
+{% endblock %}

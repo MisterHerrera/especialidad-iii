@@ -1,19 +1,20 @@
-<!-- farmacia_jesus/templates/enviar_correo.html -->
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Enviar Correo</title>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block title %}
+Enviar Correo
+{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
     <h1>Enviar Correo</h1>
-    <form method="POST">
+    <form method="POST" class="col-md-6 mx-auto">
         {% csrf_token %}
-        <label for="recipient">Correo Destinatario:</label>
-        <input type="email" name="recipient" id="recipient" required>
-        <br>
-        <button type="submit">Enviar Correo</button>
+        <div class="mb-3">
+            <label for="recipient" class="form-label">Correo Destinatario:</label>
+            <input type="email" name="recipient" id="recipient" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-dark">Enviar Correo</button>
     </form>
-    <a href="{% url 'home' %}">Volver a Inicio</a>
-</body>
-</html>
+    <a href="{% url 'home' %}" class="btn btn-outline-dark mt-3">Volver a Inicio</a>
+</div>
+{% endblock %}

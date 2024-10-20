@@ -1,7 +1,31 @@
-<h1>{% if form.instance.id_proveedor %}Editar{% else %}Nuevo{% endif %} Proveedor</h1>
-<form method="POST">
+{% extends 'base.html' %}
+
+{% block title %}
+    {% if form.instance.id_proveedor %}Editar Proveedor{% else %}Nuevo Proveedor{% endif %}
+{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1 class="mb-0">{% if form.instance.id_proveedor %}Editar{% else %}Nuevo{% endif %} Proveedor</h1>
+    <a href="{% url 'proveedor-list' %}" class="btn btn-outline-dark"><i class="fas fa-arrow-left"></i> Volver</a>
+</div>
+
+<form method="POST" class="col-md-6 mx-auto">
     {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Guardar</button>
+    
+    <div class="mb-3">
+        <label for="id_id_proveedor" class="form-label">ID:</label>
+        <input type="number" name="id_proveedor" required id="id_id_proveedor" class="form-control" 
+               value="{{ form.id_proveedor.value|default:'' }}">
+    </div>
+
+    <div class="mb-3">
+        <label for="id_nombre" class="form-label">Nombre:</label>
+        <input type="text" name="nombre" maxlength="20" required id="id_nombre" class="form-control" 
+               value="{{ form.nombre.value|default:'' }}">
+    </div>
+
+    <button type="submit" class="btn btn-dark">Guardar</button>
 </form>
-<a href="{% url 'proveedor-list' %}">Volver</a>
+
+{% endblock %}

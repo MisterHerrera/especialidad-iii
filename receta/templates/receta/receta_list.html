@@ -1,17 +1,63 @@
-<h1>Lista de Recetas</h1>
-<a href="{% url 'receta-create' %}">Nueva Receta</a>
-<ul>
-    {% for receta in recetas %}
-        <li>
-            Cliente: {{ receta.id_cliente.nombre }} - Doctor: {{ receta.nombre_doctor }}
-            <a href="{% url 'receta-update' receta.id_receta %}">Editar</a>
-            <a href="{% url 'receta-delete' receta.id_receta %}">Eliminar</a>
-        </li>
-    {% endfor %}
-</ul>
+{% extends 'base.html' %}
 
+{% block title %}
+Listado de Recetas
+{% endblock %}
 
-<div class="col-12 col-sm-4 mb-3">
-    <a href="{% url 'home' %}" class="button button--gray form-control">Volver</a>
-
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1 class="mb-0">Listado de Recetas</h1>
+    <div>
+        <a href="{% url 'home' %}" class="btn btn-outline-dark me-2"><i class="fas fa-arrow-left"></i> Atrás</a>
+        <a href="{% url 'receta-create' %}" class="btn btn-dark">Crear nueva receta</a>
+    </div>
 </div>
+
+<table class="table table-striped table-hover mt-4">
+    <thead class="table-dark">
+        <tr>
+            <th>Cliente</th>
+            <th>Doctor</th>
+            <th>Editar</th>
+            <th>Eliminar</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for receta in recetas %}
+        <tr>
+            <td>{{ receta.id_cliente.nombre }}</td>
+            <td>{{ receta.nombre_doctor }}</td>
+            <td><a href="{% url 'receta-update' receta.id_receta %}" class="btn btn-outline-dark btn-sm">✏️</a></td>
+            <td>
+                <!-- Botón para abrir el modal -->
+                <button class="btn btn-outline-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal{{ receta.id_receta }}">
+                    🗑️
+                </button>
+
+                <!-- Modal de confirmación -->
+                <div class="modal fade" id="deleteModal{{ receta.id_receta }}" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="deleteModalLabel">Eliminar Receta</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                ¿Estás seguro de que quieres eliminar esta receta?
+                            </div>
+                            <div class="modal-footer">
+                                <form method="post" action="{% url 'receta-delete' receta.id_receta %}">
+                                    {% csrf_token %}
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                    <button type="submit" class="btn btn-danger">Eliminar</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

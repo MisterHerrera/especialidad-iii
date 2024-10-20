@@ -3,8 +3,8 @@ from .models import Receta
 from cliente.models import Cliente
 
 class RecetaForm(forms.Form):
-    id_cliente = forms.ChoiceField(choices=[])  # Campo de selección para cliente
-    nombre_doctor = forms.CharField(max_length=255)
+    id_cliente = forms.ChoiceField(choices=[], widget=forms.Select(attrs={'class': 'form-control'}))
+    nombre_doctor = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'class': 'form-control'}))
 
     def __init__(self, *args, **kwargs):
         # Si se pasa una instancia, la guardamos
