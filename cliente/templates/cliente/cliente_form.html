@@ -17,18 +17,33 @@
         <label for="id_rut" class="form-label">Rut:</label>
         <input type="text" name="rut" required id="id_rut" class="form-control" 
                value="{{ form.rut.value|default:'' }}" maxlength="10">
+        {% if form.rut.errors %}
+            <div class="text-danger">
+                {{ form.rut.errors|striptags }}
+            </div>
+        {% endif %}
     </div>
 
     <div class="mb-3">
         <label for="id_nombre" class="form-label">Nombre:</label>
         <input type="text" name="nombre" required id="id_nombre" class="form-control" 
                value="{{ form.nombre.value|default:'' }}" maxlength="100">
+        {% if form.nombre.errors %}
+            <div class="text-danger">
+                {{ form.nombre.errors|striptags }}
+            </div>
+        {% endif %}
     </div>
 
     <div class="mb-3">
         <label for="id_apellido" class="form-label">Apellido:</label>
         <input type="text" name="apellido" required id="id_apellido" class="form-control" 
                value="{{ form.apellido.value|default:'' }}" maxlength="100">
+        {% if form.apellido.errors %}
+            <div class="text-danger">
+                {{ form.apellido.errors|striptags }}
+            </div>
+        {% endif %}
     </div>
 
     <button type="submit" class="btn btn-dark">Guardar</button>
