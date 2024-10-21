@@ -155,9 +155,9 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 
 # Configuración para enviar correos
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'localhost'  
-EMAIL_PORT = 25  
-EMAIL_USE_TLS = False  
-EMAIL_USE_SSL = False  
-DEFAULT_FROM_EMAIL = 'henriquezurbinae0@gmail.com'  
+DEFAULT_FROM_EMAIL = "envios@dominio.cl"#agregue un correo que aparecerá en el correo enviado, este no necesariamente debe ser una casilla que exista
+EMAIL_HOST = 'smtp.googlemail.com'#servidor de salida del proveedor de correo, por lo general se usa smtp.dominio
+EMAIL_PORT = 587 #Puerto del servidor de salida, el proveedor de correo debe indicar el puerto que usará
+EMAIL_HOST_USER = 'especialidad.64bits@gmail.com'#correo que se usará para el envio, esta casilla debe existir en el servidor
+EMAIL_HOST_PASSWORD = 'hwtoilihmqcxmiql'#contraseña de acceso del correo usado en el paso anterior
+EMAIL_USE_TLS = True #habilita el protocolo de seguridad que cifra los correos
